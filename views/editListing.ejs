@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Listing</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+      }
+
+      .container {
+        width: 700px;
+        background: #fff;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #444;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #ff385c;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 130px;
+      }
+
+      img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+        font-size: 18px;
+        background: #ff385c;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #e11d48;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Edit Listing</h1>
+
+      <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value="<%= listing.title %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" required>
+<%= listing.description %></textarea
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Current Image</label>
+
+          <img id="preview" src="<%= listing.image %>" alt="Listing Image" />
+
+          <label for="image">Image URL</label>
+
+          <input
+            type="url"
+            id="image"
+            name="image"
+            value="<%= listing.image %>"
+            placeholder="Paste image URL"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value="<%= listing.price %>"
+            min="1"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            value="<%= listing.location %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            value="<%= listing.country %>"
+            required
+          />
+        </div>
+
+        <button type="submit">Update Listing</button>
+      </form>
+    </div>
+
+    <script>
+      const imageInput = document.getElementById("image");
+      const preview = document.getElementById("preview");
+
+      imageInput.addEventListener("input", function () {
+        if (this.value.trim() !== "") {
+          preview.src = this.value;
+        }
+      });
+    </script>
+  </body>
+</html>

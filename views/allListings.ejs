@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Listings</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f8f9fa;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #222;
+      font-size: 2.2rem;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      width: 320px;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .card-body h2 {
+      font-size: 1.35rem;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .card-body .description {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ff385c;
+    }
+
+    .price span {
+      color: #666;
+      font-size: 0.9rem;
+      font-weight: normal;
+    }
+
+    .location {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .id {
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: #999;
+      border-top: 1px solid #eee;
+      padding-top: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 22px;
+      background: #ff385c;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e11d48;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>All Listings</h1>
+
+  <a class="btn" href="/listings/new">New Listing</a><br><br>
+
+  <div class="container">
+    <% for (const list of lists) { %>
+
+    <div class="card">
+      <img src="<%= list.image %>" alt="<%= list.title %>">
+
+      <div class="card-body">
+        <h2><%= list.title %></h2>
+
+        <p class="description">
+          <%= list.description %>
+        </p>
+
+        <div class="info">
+          <p class="price">
+            ₹<%= list.price %> <span>/ night</span>
+          </p>
+        </div>
+
+        <p class="location">
+          📍 <%= list.location %>, <%= list.country %>
+        </p>
+
+        <p class="id">
+          Listing ID: <%= list.id %>
+        </p>
+
+        <a class="btn" href="/listings/<%= list.id %>">In detail</a>
+        <form action="/listings/<%= list._id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn">
+            Delete Listing
+          </button>
+        </form>
+        <a href="/listings/<%= list.id %>/edit" class="btn">Edit Listing</a>
+
+      </div>
+    </div>
+
+    <% } %>
+  </div>
+</body>
+
+</html>
