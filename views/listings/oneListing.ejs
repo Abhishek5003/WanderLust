@@ -1,0 +1,102 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="show-page">
+  <!-- ================= HEADER ================= -->
+
+  <div class="show-header">
+    <h1>
+      <i class="fa-solid fa-house"></i>
+
+      <%= listing.title %>
+    </h1>
+  </div>
+
+  <!-- ================= CONTENT ================= -->
+
+  <div class="row g-4 align-items-stretch" style="margin-top: 6rem">
+    <!-- ========= IMAGE ========= -->
+
+    <div class="col-lg-7">
+      <div class="show-image-card">
+        <img src="<%= listing.image %>" alt="<%= listing.title %>" />
+      </div>
+    </div>
+
+    <!-- ========= DETAILS ========= -->
+
+    <div class="col-lg-5">
+      <div class="show-info-card">
+        <!-- Price -->
+
+        <div class="show-price">
+          ₹<%= listing.price %>
+
+          <span>/ night</span>
+        </div>
+
+        <!-- Location -->
+
+        <div class="show-meta">
+          <div class="meta-item">
+            <i class="fa-solid fa-location-dot"></i>
+
+            <span> <%= listing.location %> </span>
+          </div>
+
+          <div class="meta-item">
+            <i class="fa-solid fa-earth-americas"></i>
+
+            <span> <%= listing.country %> </span>
+          </div>
+        </div>
+
+        <!-- Description -->
+
+        <div class="show-description">
+          <h5>
+            <i class="fa-solid fa-circle-info"></i>
+
+            Description
+          </h5>
+
+          <p><%= listing.description %></p>
+        </div>
+
+        <!-- Property ID -->
+
+        <div class="property-id">
+          <span> PROPERTY ID </span>
+
+          <p><%= listing._id %></p>
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="show-actions">
+          <a href="/listings" class="show-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back
+          </a>
+
+          <a href="/listings/<%= listing._id %>/edit" class="show-btn">
+            <i class="fa-solid fa-pen"></i>
+
+            Edit
+          </a>
+
+          <form
+            action="/listings/<%= listing._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit" class="show-btn delete-btn">
+              <i class="fa-solid fa-trash"></i>
+
+              Delete
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
