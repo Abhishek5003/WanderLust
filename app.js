@@ -5,6 +5,8 @@ const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const wrapAsync = require("./utils/WrapAsync.js");
+const ExpressError = require("./utils/ExpressError.js");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -43,11 +45,15 @@ app.get("/listings/new", (req, res) => {
   res.render("listings/newListing.ejs");
 });
 
-app.post("/listings", async (req, res) => {
-  const listing = new Listing(req.body);
-  await listing.save();
-  res.redirect("/listings");
-});
+app.post(
+  "/listings",
+  wrapAsync(async (req, res) => {
+    const listing = new Listing(req.body);
+    console.log(listing);
+    await listing.save();
+    res.redirect("/listings");
+  }),
+);
 
 //One Listing rout
 app.get("/listings/:id", async (req, res) => {
@@ -63,13 +69,16 @@ app.get("/listings/:id/edit", async (req, res) => {
   res.render("listings/editListing.ejs", { listing });
 });
 
-app.put("/listings/:id", async (req, res) => {
-  let { id } = req.params;
-  console.log(req.body);
-  console.log(id);
-  await Listing.findByIdAndUpdate(id, req.body);
-  res.redirect(`/listings/${id}`);
-});
+app.put(
+  "/listings/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    console.log(req.body);
+    console.log(id);
+    await Listing.findByIdAndUpdate(id, req.body);
+    res.redirect(`/listings/${id}`);
+  }),
+);
 
 //delete listing rout
 app.delete("/listings/:id", async (req, res) => {
@@ -90,6 +99,15 @@ app.delete("/listings/:id", async (req, res) => {
 //   console.log("sample was saved");
 //   res.send("sucess to save");
 // });
+
+app.all("/{*any}", (req, res) => {
+  res.status(404).render("listings/PageNf.ejs");
+});
+
+app.use((err, req, res, next) => {
+  let { statusCode = 500, message = "Something went wrong!" } = err;
+  res.status(statusCode).send(message);
+});
 
 app.listen(8080, () => {
   console.log("server working well...............");

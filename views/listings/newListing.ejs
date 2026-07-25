@@ -8,7 +8,7 @@
     </h1>
   </div>
 
-  <form action="/listings" method="POST">
+  <form action="/listings" method="POST" novalidate class="needs-validation">
     <div class="row g-5">
       <!-- LEFT SIDE -->
 
@@ -23,6 +23,7 @@
             placeholder="Enter listing title"
             required
           />
+          <div class="valid-feedback">Looks good!</div>
         </div>
 
         <div class="mb-4">
@@ -35,6 +36,7 @@
             placeholder="Write a description..."
             required
           ></textarea>
+          <div class="valid-feedback">Looks good!</div>
         </div>
 
         <div class="mb-4">
@@ -48,6 +50,7 @@
             min="1"
             required
           />
+          <div class="invalid-feedback">Please enter a valid price!</div>
         </div>
 
         <div class="mb-4">
@@ -60,6 +63,7 @@
             placeholder="Enter country"
             required
           />
+          <div class="invalid-feedback">Enter a valid country name!</div>
         </div>
 
         <div class="mb-4">
@@ -72,6 +76,7 @@
             placeholder="Enter location"
             required
           />
+          <div class="invalid-feedback">Enter a valid location!</div>
         </div>
       </div>
 
@@ -95,7 +100,6 @@
             id="image"
             name="image"
             placeholder="Paste image URL"
-            required
           />
         </div>
 

@@ -1,77 +1,49 @@
 <% layout("/layouts/boilerplate") %>
-
-<div class="listing-header">
-
+  <div class="listing-header">
     <h1>All Listings</h1>
-
     <a href="/listings/new" class="new-listing-btn">
-
-        <i class="fa-solid fa-plus"></i>
-
-        New Listing
-
+      <i class="fa-solid fa-plus"></i>
+      New Listing
     </a>
-
-</div>
-
-<div class="row g-4">
-
-  <% for(const list of lists){ %>
-
-  <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-
-    <div class="listing-card">
-
-      <img src="<%= list.image %>" alt="<%= list.title %>">
-
-      <div class="listing-card-body">
-
-        <h2><%= list.title %></h2>
-
-        <p class="listing-description">
-          <%= list.description %>
-        </p>
-
-        <p class="listing-price">
-          ₹<%= list.price %>
-          <span>/ night</span>
-        </p>
-
-        <p class="listing-location">
-          <i class="fa-solid fa-location-dot"></i>
-          <%= list.location %>, <%= list.country %>
-        </p>
-
-        <p class="listing-id">
-          Listing ID : <%= list.id %>
-        </p>
-
-        <div class="listing-actions">
-
-          <a href="/listings/<%= list.id %>" class="wl-btn">
-            Details
-          </a>
-
-          <a href="/listings/<%= list.id %>/edit" class="wl-btn">
-            Edit
-          </a>
-
-          <form action="/listings/<%= list._id %>?_method=DELETE" method="POST">
-
-            <button class="wl-btn delete-btn">
-              Delete
-            </button>
-
-          </form>
-
-        </div>
-
-      </div>
-
-    </div>
-
   </div>
-
-  <% } %>
-
-</div>
+  <div class="row g-4">
+    <% for(const list of lists){ %>
+      <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+        <div class="listing-card">
+          <img src="<%= list.image %>" alt="<%= list.title %>">
+          <div class="listing-card-body">
+            <h2>
+              <%= list.title %>
+            </h2>
+            <p class="listing-description">
+              <%= list.description %>
+            </p>
+            <p class="listing-price">
+              ₹<%= list.price %>
+                <span>/ night</span>
+            </p>
+            <p class="listing-location">
+              <i class="fa-solid fa-location-dot"></i>
+              <%= list.location %>, <%= list.country %>
+            </p>
+            <p class="listing-id">
+              Listing ID : <%= list.id %>
+            </p>
+            <div class="listing-actions">
+              <a href="/listings/<%= list.id %>" class="wl-btn">
+                Details
+              </a>
+              <a href="/listings/<%= list.id %>/edit" class="wl-btn">
+                Edit
+              </a>
+              <form action="/listings/<%= list._id %>?_method=DELETE" method="POST">
+                <button class="wl-btn delete-btn">
+                  Delete
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+  </div>
