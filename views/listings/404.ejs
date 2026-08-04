@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --bg-color: #fbfcfd;
+        --primary-red: #e63854;
+        --primary-hover: #d02e47;
+        --navy-dark: #fefefe;
+        --text-muted: #a6b7cd;
+        --border-dark: #1e2738;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+
+        min-height: 100vh;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        padding: 40px 20px;
+
+        overflow-x: hidden;
+      }
+
+      body {
+        background: linear-gradient(135deg, #202938, #29384e, #354b69);
+      }
+      /* Scaled wrapper for ~12-15% extra zoom */
+      .error-card {
+        max-width: 1080px;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: scale(1.22); /* Zoomed in another ~14% */
+        transform-origin: center center;
+        margin: 40px 0;
+      }
+
+      /* Zoomed SVG Container */
+      .graphic-container {
+        width: 100%;
+        max-width: 980px;
+        margin-bottom: 5px;
+      }
+
+      .graphic-container svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Handwritten Subtitle */
+      .sub-heading {
+        font-family: "Caveat", cursive;
+        color: var(--primary-red);
+        font-size: 2.9rem;
+        font-weight: 600;
+        margin-bottom: 2px;
+        letter-spacing: -0.3px;
+      }
+
+      /* Main Heading */
+      .main-heading {
+        font-size: 2.7rem;
+        font-weight: 800;
+        color: var(--navy-dark);
+        margin-bottom: 14px;
+        letter-spacing: -0.5px;
+      }
+
+      .main-heading .dot {
+        color: var(--primary-red);
+      }
+
+      /* Description Body */
+      .description {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+        font-weight: 500;
+      }
+
+      /* Divider with Magnifier */
+      .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 30px;
+      }
+
+      .dashed-line {
+        width: 52px;
+        height: 1px;
+        border-bottom: 1.5px dashed #f5a3b0;
+      }
+
+      .search-icon {
+        color: var(--primary-red);
+        font-size: 1.05rem;
+      }
+
+      /* Action Buttons */
+      .actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 32px;
+        border-radius: 8px;
+        font-size: 1.05rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+      }
+
+      .btn-red {
+        background-color: var(--primary-red);
+        color: #ffffff;
+        border: 2px solid var(--primary-red);
+        box-shadow: 0 4px 14px rgba(230, 56, 84, 0.25);
+      }
+
+      .btn-red:hover {
+        background-color: var(--primary-hover);
+        border-color: var(--primary-hover);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--navy-dark);
+        border: 2px solid var(--navy-dark);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--navy-dark);
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+
+      /* Pin Marker */
+      .location-marker {
+        margin-top: 22px;
+        color: var(--primary-red);
+        font-size: 1.85rem;
+      }
+
+      @media (max-width: 900px) {
+        .error-card {
+          transform: scale(
+            1
+          ); /* Reset zoom on tablets and mobile to avoid clipping */
+          margin: 0;
+        }
+        .sub-heading {
+          font-size: 2.2rem;
+        }
+        .main-heading {
+          font-size: 1.9rem;
+        }
+        .actions {
+          flex-direction: column;
+          width: 100%;
+        }
+        .btn {
+          width: 100%;
+          max-width: 280px;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="error-card">
+      <!-- SVG Vector Graphics -->
+      <div class="graphic-container">
+        <svg
+          viewBox="0 0 900 330"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!-- Background Mountain Landscape & Shading -->
+          <g stroke="#b0becc" stroke-width="1.2" fill="none">
+            <!-- Left Mountains -->
+            <path
+              d="M 10 270 L 120 160 L 190 220 L 270 135 L 370 270"
+              stroke="#c2cedb"
+              stroke-dasharray="3 3"
+            />
+            <path d="M 50 270 L 135 180 L 180 220 M 135 180 L 205 270" />
+            <!-- Mountain Shading Lines -->
+            <path
+              d="M 125 190 L 140 210 M 115 200 L 135 225 M 105 210 L 130 240"
+              stroke="#d5deea"
+            />
+
+            <!-- Pine Trees -->
+            <path
+              d="M 35 270 L 50 235 L 65 270 M 50 235 L 50 270 M 42 250 L 58 250 M 38 260 L 62 260"
+            />
+            <path
+              d="M 68 270 L 80 242 L 92 270 M 80 242 L 80 270 M 73 255 L 87 255"
+            />
+            <path d="M 200 270 L 210 248 L 220 270 M 210 248 L 210 270" />
+
+            <!-- Wooden Sign Post -->
+            <path
+              d="M 140 270 V 250 M 130 252 H 150 L 155 257 L 150 262 H 130 Z"
+              fill="#ffffff"
+            />
+          </g>
+
+          <!-- Right Hill & Detailed Lighthouse -->
+          <g stroke="#b0becc" stroke-width="1.2" fill="none">
+            <path
+              d="M 620 270 C 700 235, 780 215, 900 245"
+              stroke="#b0becc"
+              stroke-width="1.5"
+            />
+            <!-- Footprint Trail Path -->
+            <path
+              d="M 110 285 C 300 325, 600 325, 770 275"
+              stroke="#c2cedb"
+              stroke-width="1.5"
+              stroke-dasharray="4 4"
+            />
+
+            <!-- Lighthouse structure -->
+            <path d="M 760 215 C 770 215, 830 215, 850 230" stroke="#d5deea" />
+            <path
+              d="M 770 215 L 782 130 L 808 130 L 820 215"
+              stroke="#1b293e"
+            />
+            <path
+              d="M 778 130 H 812 M 782 115 H 808 M 782 115 L 795 98 L 808 115"
+              stroke="#1b293e"
+            />
+            <!-- Lighthouse Windows & Details -->
+            <rect
+              x="790"
+              y="145"
+              width="10"
+              height="15"
+              rx="5"
+              stroke="#1b293e"
+            />
+            <rect
+              x="790"
+              y="175"
+              width="10"
+              height="15"
+              rx="5"
+              stroke="#1b293e"
+            />
+            <path d="M 776 170 H 814 M 772 195 H 818" stroke="#d5deea" />
+          </g>
+
+          <!-- Hot Air Balloon (Left) -->
+          <g transform="translate(90, 25)">
+            <path
+              d="M 30 10 A 24 28 0 0 1 30 66 A 24 28 0 0 1 30 10 Z"
+              stroke="#e63854"
+              stroke-width="1.5"
+              fill="none"
+            />
+            <path
+              d="M 30 10 Q 16 38 30 66 M 30 10 Q 44 38 30 66"
+              stroke="#e63854"
+              stroke-width="1.2"
+              fill="none"
+            />
+            <rect
+              x="24"
+              y="72"
+              width="12"
+              height="8"
+              stroke="#e63854"
+              stroke-width="1.2"
+              fill="none"
+            />
+            <line
+              x1="23"
+              y1="66"
+              x2="25"
+              y2="72"
+              stroke="#e63854"
+              stroke-width="1.2"
+            />
+            <line
+              x1="37"
+              y1="66"
+              x2="35"
+              y2="72"
+              stroke="#e63854"
+              stroke-width="1.2"
+            />
+            <path
+              d="M 15 80 Q -5 90, -25 75"
+              stroke="#c2cedb"
+              stroke-width="1.2"
+              stroke-dasharray="3 3"
+            />
+          </g>
+
+          <!-- Paper Airplane (Right) -->
+          <g transform="translate(755, 45)">
+            <path
+              d="M 0 22 L 48 0 L 26 34 L 18 24 L 34 10 L 12 20 Z"
+              stroke="#e63854"
+              stroke-width="1.5"
+              fill="none"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M -5 28 C -25 35, -40 18, -65 28"
+              stroke="#c2cedb"
+              stroke-width="1.2"
+              stroke-dasharray="3 3"
+            />
+          </g>
+
+          <!-- Red "x" Markers -->
+          <text x="210" y="55" fill="#e63854" font-size="13" font-weight="bold">
+            ×
+          </text>
+          <text x="580" y="50" fill="#e63854" font-size="13" font-weight="bold">
+            ×
+          </text>
+          <text
+            x="245"
+            y="225"
+            fill="#e63854"
+            font-size="13"
+            font-weight="bold"
+          >
+            ×
+          </text>
+          <text
+            x="725"
+            y="200"
+            fill="#e63854"
+            font-size="13"
+            font-weight="bold"
+          >
+            ×
+          </text>
+
+          <!-- Technical Blueprint Measurement Lines (Light Blue) -->
+          <g stroke="#a0c4d6" stroke-width="0.9" stroke-dasharray="2 2">
+            <line x1="160" y1="42" x2="680" y2="42" />
+            <line x1="160" y1="245" x2="680" y2="245" />
+            <rect x="180" y="42" width="150" height="203" fill="none" />
+            <rect x="375" y="42" width="150" height="203" fill="none" />
+            <rect x="520" y="42" width="150" height="203" fill="none" />
+          </g>
+
+          <!-- Outlined 404 Numbers with Hollow CAD Nodes -->
+          <g
+            stroke="#1b293e"
+            stroke-width="2.5"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <!-- FIRST 4 -->
+            <path
+              d="M 280 42 L 180 180 H 260 V 245 H 295 V 180 H 330 V 150 H 295 V 42 H 280 Z"
+              fill="#fbfcfd"
+            />
+            <path d="M 260 150 L 260 85 L 210 150 H 260 Z" fill="#fbfcfd" />
+
+            <!-- Nodes -->
+            <circle
+              cx="280"
+              cy="42"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="180"
+              cy="180"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="330"
+              cy="180"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="330"
+              cy="150"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="295"
+              cy="245"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="260"
+              cy="245"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+
+            <!-- CENTER 0 -->
+            <ellipse cx="450" cy="143.5" rx="55" ry="101.5" fill="#fbfcfd" />
+            <ellipse cx="450" cy="143.5" rx="22" ry="60" fill="#fbfcfd" />
+
+            <!-- Nodes -->
+            <circle
+              cx="450"
+              cy="42"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="450"
+              cy="245"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="395"
+              cy="143.5"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="505"
+              cy="143.5"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="450"
+              cy="83.5"
+              r="3"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="450"
+              cy="203.5"
+              r="3"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="428"
+              cy="143.5"
+              r="3"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="472"
+              cy="143.5"
+              r="3"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+
+            <!-- SECOND 4 -->
+            <path
+              d="M 620 42 L 520 180 H 600 V 245 H 635 V 180 H 670 V 150 H 635 V 42 H 620 Z"
+              fill="#fbfcfd"
+            />
+            <path d="M 600 150 L 600 85 L 550 150 H 600 Z" fill="#fbfcfd" />
+
+            <!-- Nodes -->
+            <circle
+              cx="620"
+              cy="42"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="520"
+              cy="180"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="670"
+              cy="180"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="670"
+              cy="150"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="635"
+              cy="245"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+            <circle
+              cx="600"
+              cy="245"
+              r="4"
+              fill="#ffffff"
+              stroke="#1b293e"
+              stroke-width="2"
+            />
+          </g>
+        </svg>
+      </div>
+
+      <!-- Copy & Text -->
+      <h2 class="sub-heading">
+        <%= typeof subtitle !== 'undefined' ? subtitle : 'Lost Traveler?' %>
+      </h2>
+      <h1 class="main-heading">
+        <%= typeof title !== 'undefined' ? title : "This page can't be found"
+        %><span class="dot">.</span>
+      </h1>
+
+      <p class="description">
+        Looks like you've wandered off the map.<br />
+        The destination you're looking for doesn't exist.
+      </p>
+
+      <!-- Glass Divider -->
+      <div class="divider">
+        <span class="dashed-line"></span>
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <span class="dashed-line"></span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+        <a
+          href="<%= typeof homeUrl !== 'undefined' ? homeUrl : '/' %>"
+          class="btn btn-red"
+        >
+          <i class="fa-solid fa-house"></i> Back to Home
+        </a>
+        <a
+          href="<%= typeof browseUrl !== 'undefined' ? browseUrl : '/listings' %>"
+          class="btn btn-outline"
+        >
+          <i class="fa-regular fa-compass"></i> Browse Listings
+        </a>
+      </div>
+
+      <!-- Pin Point -->
+      <div class="location-marker">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+    </main>
+  </body>
+</html>

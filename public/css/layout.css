@@ -1,0 +1,89 @@
+/*====================================
+            GLOBAL RESET
+====================================*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  background: var(--bg);
+
+  color: var(--text);
+
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+/*====================================
+            LAYOUT
+====================================*/
+
+.wrapper {
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.page-container {
+  padding: 2rem;
+}
+
+/*====================================
+        COMMON ELEMENTS
+====================================*/
+
+a {
+  transition: var(--transition);
+}
+
+button {
+  transition: var(--transition);
+}
+
+input,
+textarea,
+select {
+  transition: var(--transition);
+}
+
+/*====================================
+            SCROLLBAR
+====================================*/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}

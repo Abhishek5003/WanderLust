@@ -1,0 +1,45 @@
+/*====================================
+            FOOTER
+====================================*/
+
+footer {
+  margin-top: auto;
+
+  background: var(--surface) !important;
+
+  border-top: 1px solid var(--border) !important;
+
+  padding: 1.2rem 0;
+
+  transition: var(--transition);
+}
+
+/*====================================
+        SOCIAL ICONS
+====================================*/
+
+footer a {
+  color: var(--text-secondary) !important;
+
+  margin: 0 0.75rem;
+
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: var(--primary) !important;
+
+  transform: translateY(-3px);
+}
+
+/*====================================
+        COPYRIGHT
+====================================*/
+
+footer small {
+  color: var(--text-muted) !important;
+
+  font-size: 0.9rem;
+
+  letter-spacing: 0.3px;
+}

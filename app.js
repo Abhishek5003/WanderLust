@@ -48,6 +48,9 @@ app.get("/listings/new", (req, res) => {
 app.post(
   "/listings",
   wrapAsync(async (req, res) => {
+    if (!req.body.Listing) {
+      throw new ExpressError(400, "Send valid data for Listing.");
+    }
     const listing = new Listing(req.body);
     console.log(listing);
     await listing.save();
@@ -101,7 +104,7 @@ app.delete("/listings/:id", async (req, res) => {
 // });
 
 app.all("/{*any}", (req, res) => {
-  res.status(404).render("listings/PageNf.ejs");
+  res.status(404).render("listings/404.ejs");
 });
 
 app.use((err, req, res, next) => {

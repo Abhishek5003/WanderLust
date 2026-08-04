@@ -1,0 +1,92 @@
+/*====================================
+            GOOGLE FONT
+====================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+/*====================================
+        LIGHT THEME (Default)
+====================================*/
+
+:root {
+  /* Brand */
+
+  --primary: #ff385c;
+  --primary-hover: #e11d48;
+
+  /* Background */
+
+  --bg: #f8f9fa;
+
+  --surface: #ffffff;
+
+  --surface-light: #fafafa;
+
+  /* Text */
+
+  --text: #222222;
+
+  --text-secondary: #444444;
+
+  --text-muted: #666666;
+
+  --text-light: #999999;
+
+  /* Border */
+
+  --border: #ececec;
+
+  /* Shadow */
+
+  --shadow-sm: 0 4px 18px rgba(0, 0, 0, 0.08);
+
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  --shadow-lg: 0 20px 35px rgba(0, 0, 0, 0.15);
+
+  /* Animation */
+
+  --transition: 0.35s ease;
+}
+
+/*====================================
+            DARK THEME
+====================================*/
+
+body.dark {
+  /* Brand */
+
+  --primary: #ff4d6d;
+
+  --primary-hover: #ff2d55;
+
+  /* Background */
+
+  --bg: #202938;
+
+  --surface: #29384e;
+
+  --surface-light: #354b69;
+
+  /* Text */
+
+  --text: #ffffff;
+
+  --text-secondary: #e2e8f0;
+
+  --text-muted: #bfc9d6;
+
+  --text-light: #94a3b8;
+
+  /* Border */
+
+  --border: #3d5069;
+
+  /* Shadow */
+
+  --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.35);
+
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.4);
+
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.5);
+}

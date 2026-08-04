@@ -1,0 +1,295 @@
+/*===============================
+        ALL LISTINGS
+================================*/
+
+.listing-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 35px;
+}
+
+.listing-header h1 {
+  font-size: 2.5rem;
+
+  font-weight: 700;
+
+  margin: 0;
+
+  color: var(--text);
+}
+
+/*====================================
+        NEW LISTING BUTTON
+====================================*/
+
+.new-listing-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 24px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  border-radius: 50px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  transition: var(--transition);
+
+  box-shadow: 0 8px 18px rgba(255, 56, 92, 0.25);
+}
+
+.new-listing-btn:hover {
+  background: var(--primary-hover);
+
+  color: #fff;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 24px rgba(255, 56, 92, 0.35);
+}
+
+.new-listing-btn i {
+  transition: var(--transition);
+}
+
+.new-listing-btn:hover i {
+  transform: rotate(90deg);
+}
+
+/*====================================
+            CARD
+====================================*/
+
+.listing-card {
+  background: var(--surface);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-md);
+
+  transition: var(--transition);
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.listing-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: var(--shadow-lg);
+}
+
+/*====================================
+            IMAGE
+====================================*/
+
+.listing-card img {
+  width: 100%;
+
+  height: 240px;
+
+  object-fit: cover;
+}
+
+/*====================================
+            CARD BODY
+====================================*/
+
+.listing-card-body {
+  padding: 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.listing-card-body h2 {
+  font-size: 1.6rem;
+
+  font-weight: 700;
+
+  color: var(--text);
+
+  height: 65px;
+
+  overflow: hidden;
+}
+
+/*====================================
+        DESCRIPTION
+====================================*/
+
+.listing-description {
+  color: var(--text-secondary);
+
+  line-height: 1.6;
+
+  height: 76px;
+
+  overflow: hidden;
+
+  margin-bottom: 15px;
+}
+
+/*====================================
+            PRICE
+====================================*/
+
+.listing-price {
+  font-size: 1.4rem;
+
+  font-weight: 700;
+
+  color: var(--primary);
+
+  margin-bottom: 12px;
+}
+
+.listing-price span {
+  font-size: 0.95rem;
+
+  font-weight: 400;
+
+  color: var(--text-muted);
+}
+
+/*====================================
+            LOCATION
+====================================*/
+
+.listing-location {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: var(--text-secondary);
+
+  margin-bottom: 12px;
+}
+
+.listing-location i {
+  color: var(--primary);
+}
+
+/*====================================
+            LISTING ID
+====================================*/
+
+.listing-id {
+  font-size: 0.75rem;
+
+  color: var(--text-light);
+
+  border-top: 1px solid var(--border);
+
+  padding-top: 10px;
+
+  margin-bottom: 20px;
+}
+
+/*====================================
+        ACTION BUTTONS
+====================================*/
+
+.listing-actions {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: auto;
+}
+
+.listing-actions form {
+  flex: 1;
+
+  margin: 0;
+}
+
+.listing-actions .wl-btn {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  font-weight: 500;
+
+  transition: var(--transition);
+}
+
+.listing-actions .wl-btn:hover {
+  background: var(--primary-hover);
+
+  color: #fff;
+}
+
+/*====================================
+        RESPONSIVE
+====================================*/
+
+@media (max-width: 992px) {
+  .listing-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .listing-header h1 {
+    font-size: 2rem;
+  }
+
+  .listing-card img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 576px) {
+  .listing-actions {
+    flex-direction: column;
+  }
+}
