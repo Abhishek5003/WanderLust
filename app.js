@@ -7,6 +7,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/WrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
+const { ListingSchema } = require("./SchemaValidators/ListingSchema.js");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -30,6 +31,20 @@ async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
 }
 
+const validateListing = (req, res, next) => {
+  const { error } = ListingSchema.validate(req.body, {
+    abortEarly: false,
+  });
+  console.log(req.body);
+  console.log(req.body.listing);
+  if (error) {
+    const errMsg = `<ul>${error.details.map((el, index) => `<li>${index + 1}. ${el.message}</li>`).join("")}</ul>`;
+    throw new ExpressError(400, errMsg);
+  }
+
+  next();
+};
+
 app.get("/", (req, res) => {
   res.send("we are here for you");
 });
@@ -47,12 +62,9 @@ app.get("/listings/new", (req, res) => {
 
 app.post(
   "/listings",
+  validateListing,
   wrapAsync(async (req, res) => {
-    if (!req.body.Listing) {
-      throw new ExpressError(400, "Send valid data for Listing.");
-    }
-    const listing = new Listing(req.body);
-    console.log(listing);
+    const listing = new Listing(req.body.listing);
     await listing.save();
     res.redirect("/listings");
   }),
@@ -74,11 +86,12 @@ app.get("/listings/:id/edit", async (req, res) => {
 
 app.put(
   "/listings/:id",
+  validateListing,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     console.log(req.body);
     console.log(id);
-    await Listing.findByIdAndUpdate(id, req.body);
+    await Listing.findByIdAndUpdate(id, req.body.listing);
     res.redirect(`/listings/${id}`);
   }),
 );
